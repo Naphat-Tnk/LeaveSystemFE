@@ -1,0 +1,54 @@
+<div class="Admin">
+    <div class="card mb-5">
+        <h5 class="fw-bold mb-3">รายการขออนุมัติการลา</h5>
+        <span>รายการที่รอการอนุมัติทั้งหมด {{leaveRequests.length}} รายการ</span>
+    </div>
+    <div class="card mb-5" *ngFor="let request of leaveRequests">
+        <div class="d-flex flex-wrap justify-content-between">
+            <div class="d-flex flex-wrap align-items-center w-100" >
+                <h5 class="fw-bold mb-3 ">{{request.username}}</h5>
+                <span class="status ms-auto">{{ request.status === 'APPROVED' ? 'อนุมัติแล้ว' :
+                    request.status === 'PENDING' ? 'รออนุมัติ' :
+                    request.status === 'REJECTED' ? 'ไม่อนุมัติ' : '-' }}</span>
+            </div>
+        </div>   
+
+        <div class="row mt-4">
+            <div class="col-md-6 mb-2">
+                <span class="text-muted">ประเภทการลา</span>
+                <br>
+                <span class="fw-bold">{{request.leaveTypeName}}</span>
+            </div>
+            <div class="col-md-6 mb-2">
+                <span class="text-muted">จำนวนวัน</span>
+                <br>
+                <span class="fw-bold">{{request.days || '-'}}</span>
+            </div>
+            <div class="col-md-6 mb-2">
+                <span class="text-muted">วันที่เริ่มต้น</span>
+                <br>
+                <span class="fw-bold">{{request.startDate}}</span>
+            </div>
+            <div class="col-md-6 mb-2">
+                <span class="text-muted">วันที่สิ้นสุด</span>
+                <br>
+                <span class="fw-bold">{{request.endDate}}</span>
+            </div>
+            <div class="col-md-6 mb-2">
+                <span class="text-muted">เหตุผลการลา</span>
+                <br>
+                <span class="fw-bold">{{request.reason}}</span>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <span> <i class="bi bi-chat-left-text me-1"></i> ความคิดเห็น</span>
+            <textarea class="form-control mt-2"></textarea>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-end mt-4">
+            <button class="btn btn-danger me-2" (click)="updateStatus(request.id, 'REJECTED')"> <i class="bi bi-x-lg me-1"></i>ไม่อนุมัติ</button>
+            <button class="btn btn-success" (click)="updateStatus(request.id, 'APPROVED')"> <i class="bi bi-check-lg me-1"></i>อนุมัติ</button>
+        </div>
+    </div>
+</div>

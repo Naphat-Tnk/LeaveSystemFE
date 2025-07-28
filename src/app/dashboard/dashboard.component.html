@@ -1,0 +1,83 @@
+<div class="card mb-2">
+    <div class="card-body d-flex flex-wrap align-items-center">
+        <div class="d-flex flex-wrap">
+            <i class="bi bi-calendar-check me-2 text-primary fs-2"></i>
+            <div class="ms-2">
+                <div class="text-muted">วันลาคงเหลือ</div>
+                <div class="fw-bold">{{ totalremain }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="card mb-2">
+        <div class="card-body d-flex flex-wrap align-items-center">
+            <div class="d-flex flex-wrap">
+                <i class="bi bi-clock me-2 text-warning fs-2"></i>
+                <div class="ms-2">
+                    <div class="text-muted">ลาที่รออนุมัติ</div>
+                    <div class="fw-bold">{{ pending }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-2">
+        <div class="card-body d-flex flex-wrap align-items-center">
+            <div class="d-flex flex-wrap">
+                <i class="bi bi-file-earmark me-2 text-info fs-2"></i>
+                <div class="ms-2">
+                    <div class="text-muted">ลาทั้งหมดปีนี้</div>
+                    <div class="fw-bold">{{ totalused }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="LeaveList">
+    <div class="card mb-5">
+        <h5 class="fw-bold mb-3">รายการล่าสุด</h5>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-primary">
+                    <tr>
+                        <th>วันที่</th>
+                        <th>ประเภทการลา</th>
+                        <th>จำนวนวัน</th>
+                        <th>สถานะ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let requests of Requests">
+                        <td>{{requests.startDate}} - {{requests.endDate}}</td>
+                        <td>{{requests.leaveTypeName}}</td>
+                        <td>{{requests.days}}</td>
+                        <td>
+                            <span class="status ms-auto" [ngClass]="{ 'bg-success': requests.status === 'APPROVED', 'bg-warning': requests.status === 'PENDING', 'bg-danger': requests.status === 'REJECTED' }"> 
+                                {{ requests.status === 'APPROVED' ? 'อนุมัติแล้ว' :
+                                requests.status === 'PENDING' ? 'รออนุมัติ' :
+                                requests.status === 'REJECTED' ? 'ไม่อนุมัติ' : '-' }}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>  
+</div>
+
+<!-- <div class="card mb-2">
+    <div class="d-flex justify-content-between align-items-center">
+        <h5 >ปฏิทินลา</h5>
+        <select class="form-select" (ngModelChange)="filterRequests()" [(ngModel)]="type">
+            <option value="ทุกแผนก">ทุกแผนก</option>
+            <option value="IT">IT</option>
+            <option value="HR">HR</option>
+        </select>
+    </div>
+</div>
+<div class="card mb-5 shadow-sm" style="border-radius: 16px;">
+    <div class="card-body">
+        <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+</div> -->

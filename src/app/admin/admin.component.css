@@ -1,0 +1,17 @@
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 15px 28px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.status{
+    background-color: #f3e07a;
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
