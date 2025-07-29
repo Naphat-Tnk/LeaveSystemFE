@@ -15,7 +15,7 @@ export class AdminComponent {
 
   leaveRequests: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   TypeName = [
     { id: 1, name: 'ลาป่วย' },

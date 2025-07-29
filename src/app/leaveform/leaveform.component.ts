@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class LeaveFormComponent {
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   leaveType = [
     { id: 1, name: 'ลาป่วย' },

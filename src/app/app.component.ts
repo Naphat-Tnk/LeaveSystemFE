@@ -4,11 +4,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LeaveFormComponent } from './leaveform/leaveform.component';
 import { LeavehistoryComponent } from './leavehistory/leavehistory.component';
 import { AdminComponent } from './admin/admin.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive,DashboardComponent, LeaveFormComponent, LeavehistoryComponent,AdminComponent,],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive,DashboardComponent, LeaveFormComponent, LeavehistoryComponent,AdminComponent,FormsModule,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

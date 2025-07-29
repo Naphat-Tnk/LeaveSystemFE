@@ -40,33 +40,3 @@
 .form-select{
     width: 20%;
 }
-
-
-/* ::ng-deep .fc {
-    border-radius: 16px;
-    background: #fff;
-    font-family: 'Sarabun', sans-serif;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  ::ng-deep .fc-daygrid-day-number {
-    font-size: 12px;
-    color: #444;
-    padding: 4px;
-  }
-  
-  ::ng-deep .fc-event {
-    font-size: 11px;
-    padding: 2px 6px;
-    border-radius: 8px;
-    background: #4e73df;
-    color: #fff;
-    border: none;
-  }
-  
-  ::ng-deep .fc-scrollgrid,
-  ::ng-deep .fc-scrollgrid td {
-    border-color: #e0e0e0 !important;
-  }
-  
-   */

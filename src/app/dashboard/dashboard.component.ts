@@ -21,26 +21,13 @@ export class DashboardComponent {
   Balances: any[] = [];
   Requests: any[] = [];
 
-  // type: string = 'ทุกแผนก';
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   ngOnInit(): void {
     this.getBalance();
     this.getRequests();
   }
-
-  // calendarOptions: CalendarOptions = {
-  //   plugins: [dayGridPlugin],
-  //   initialView: 'dayGridMonth',
-  //   locale: thLocale,
-  //   events: [],
-  //   headerToolbar: {
-  //     left: 'prev,next today',
-  //     center: 'title',
-  //     right: 'dayGridMonth,dayGridWeek,dayGridDay'
-  //   },
-  // };
 
   getBalance() {
     this.http.get('http://localhost:8080/api/leave-balances').subscribe((res: any) => {
@@ -61,14 +48,6 @@ export class DashboardComponent {
       .reduce((total: number, request: any) => total + this.countDays(new Date(request.startDate), new Date(request.endDate)), 0);
       console.log('leave-requests:', res);
       this.Requests = res.sort((a: any, b: any) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
-      
-      // this.calendarOptions.events = this.Requests.map((request: any) => ({
-      //   title: `${request.username} (${request.department})`,
-      //   start: request.startDate,
-      //   end: request.endDate,
-      //   backgroundColor: this.getColorStatus(request.leaveTypeName),
-      //   borderColor: this.getColorStatus(request.leaveTypeName),
-      // }));
     });
   }
   
@@ -81,35 +60,4 @@ export class DashboardComponent {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays + 1;
   }
-  
-  // filterRequests() {
-  //   const filter = this.Requests.filter((request: any) => {
-  //     return this.type === 'ทุกแผนก' || request.department === this.type;
-  //   });
-  //   this.calendarOptions.events = filter.map((request: any) => ({
-  //     title: `${request.username} (${request.department})`,
-  //     start: request.startDate,
-  //     end: request.endDate,
-  //     backgroundColor: this.getColorStatus(request.leaveTypeName),
-  //     borderColor: this.getColorStatus(request.leaveTypeName),
-  //   }));
-  // }
-  // addDay(date: Date): Date {
-  //   const newDate = new Date(date);
-  //   newDate.setDate(newDate.getDate() + 1);
-  //   return newDate;
-  // }
-
-  // getColorStatus(type: string): string {
-  //   switch (type) {
-  //     case 'ลาป่วย':
-  //       return '#FFCDD2';
-  //     case 'ลาพักร้อน':
-  //       return '#C8E6C9';
-  //     case 'ลากิจ':
-  //       return '#FFCDD2';
-  //     default:
-  //       return '#FFFFFF';
-  //   }
-  // }
 }

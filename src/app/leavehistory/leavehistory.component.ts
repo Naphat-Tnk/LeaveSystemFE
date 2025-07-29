@@ -27,7 +27,7 @@ export class LeavehistoryComponent {
   status : string = '';
   type : string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   ngOnInit(): void {
     this.callApi();

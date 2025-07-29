@@ -2,15 +2,12 @@
     padding-left: 20px;
     font-size: 22px;
 }
-
-.nav-header{
-    margin-bottom: 80px;
-}
-.nav-header{
+.nav_header{
     width: 90%;
     margin: auto;
     margin-top: 20px;
     padding: 15px 28px;
+    margin-bottom: 80px;
 }
 .nav-link{
     color: rgb(0, 126, 181);
