@@ -3,7 +3,7 @@ version: '3'
 services:
   sonarqube:
     image: sonarqube:latest
-    container_name: sonarqubeleavefe
+    container_name: sonarqubefe
     depends_on:
       - db
     ports:
@@ -18,7 +18,7 @@ services:
 
   db:
     image: postgres:13
-    container_name: sonarqube_db_leavefe
+    container_name: sonarqube_dbfe
     environment:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
