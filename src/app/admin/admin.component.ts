@@ -25,13 +25,13 @@ export class AdminComponent {
 
   Requests(){
     this.http.get('http://localhost:8080/api/leave-requests').subscribe((res: any) => {
-      this.leaveRequests = res.filter((request: any) => request.status === 'PENDING');
+      this.leaveRequests = res.filter((request: any) => request.status === 'PENDING')
+      .map((request: any) => ({...request, comment: ''}));
     });
   }
 
   updateStatus(id: number, status: string){
-    console.log(id, status);
-    this.http.put('http://localhost:8080/api/leave-requests/'+id, { status: status }).subscribe((res: any) => {
+    this.http.put('http://localhost:8080/api/leave-requests/'+id, { status: status, comment: this.leaveRequests.find((request: any) => request.id === id)?.comment }).subscribe((res: any) => {
       this.Requests();
       alert('อัปเดตสถานะเรียบร้อย ' + status);
     }, (err: any) => {

@@ -1,0 +1,14 @@
+body {
+    background-color: white;
+    color: rgb(28, 28, 28);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode {
+    background-color: #343434;
+    color: #ffffff;
+}
+
+body.dark-mode .nav-link{
+    color: rgb(166, 228, 255);
+}
