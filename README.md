@@ -9,6 +9,10 @@ This system has a feature that can filter data by leave type and request status,
 * Angular CLI 18
 * npm install echarts
 * npm install bootstrap
+* npm install @fullcalendar/angular @fullcalendar/core @fullcalendar/daygrid (install Calendar)
+import { CalendarOptions } from '@fullcalendar/core/index.js';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import thLocale from '@fullcalendar/core/locales/th';
 ###  Run
 * `ng serve` (run)
 * `ng new name`(create new Angular)
