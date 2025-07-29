@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarOptions } from '@fullcalendar/core/index.js';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import thLocale from '@fullcalendar/core/locales/th';
 
 @Component({
   selector: 'app-dashboard',
@@ -48,6 +51,8 @@ export class DashboardComponent {
       .reduce((total: number, request: any) => total + this.countDays(new Date(request.startDate), new Date(request.endDate)), 0);
       console.log('leave-requests:', res);
       this.Requests = res.sort((a: any, b: any) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+    
+    this.calendar();
     });
   }
   
@@ -59,5 +64,50 @@ export class DashboardComponent {
     const diffTime = Math.abs(end.getTime() - start.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays + 1;
+  }
+
+  //ปฏิทิน
+
+  type: string = 'ทุกแผนก';
+
+  calendarOptions: CalendarOptions = {
+  plugins: [dayGridPlugin],
+  initialView: 'dayGridMonth',
+  locale: thLocale,
+  events: [],
+  headerToolbar: {
+    left: '',
+    center: 'title',
+    right: 'prev,next today',
+    },
+  };
+
+  calendar(){
+    this.calendarOptions.events = this.Requests.filter((request: any) => request.status === 'APPROVED').map((request: any) => ({
+      title: `${request.username} - ${request.leaveTypeName}`,
+      start: request.startDate,
+      end: request.endDate ? this.addDay(request.endDate) : this.addDay(request.startDate),
+      backgroundColor: this.color(request.leaveTypeName),
+      borderColor: this.color(request.leaveTypeName),
+    }));
+  }
+
+  addDay(date: string) : string{
+    const dat = new Date(date);
+    dat.setDate(dat.getDate() + 1);
+    return dat.toISOString().split('T')[0];
+  }
+
+  color(type: string){
+    switch (type) {
+      case 'ลาป่วย':
+        return '#6EA9ED';
+      case 'ลาพักร้อน':
+        return '#DE7CB2';
+      case 'ลากิจ':
+        return '#F59C29';
+      default:
+        return '#fe96a1';
+    }
   }
 }

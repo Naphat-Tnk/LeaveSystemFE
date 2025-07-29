@@ -40,3 +40,31 @@
 .form-select{
     width: 20%;
 }
+
+/* Calendar */
+.calendar {
+    border-radius: 16px;
+    background: #fff;
+    font-family: 'Sarabun', sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .calendar .fc-daygrid-day-number {
+    font-size: 12px;
+    color: #444;
+    padding: 4px;
+  }
+  
+  .calendar .fc-event {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    background: #000000;
+    color: #fff;
+    border: none;
+  }
+  
+  .calendar .fc-scrollgrid,
+  .calendar .fc-scrollgrid td {
+    border-color: #e0e0e0 !important;
+  }

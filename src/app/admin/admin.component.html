@@ -7,6 +7,7 @@
         <div class="d-flex flex-wrap justify-content-between">
             <div class="d-flex flex-wrap align-items-center w-100" >
                 <h5 class="fw-bold mb-3 ">{{request.username}}</h5>
+                <span class="text-muted">{{request.department}}</span>
                 <span class="status ms-auto">{{ request.status === 'APPROVED' ? 'อนุมัติแล้ว' :
                     request.status === 'PENDING' ? 'รออนุมัติ' :
                     request.status === 'REJECTED' ? 'ไม่อนุมัติ' : '-' }}</span>
