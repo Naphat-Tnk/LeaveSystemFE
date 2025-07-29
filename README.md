@@ -26,9 +26,9 @@ import thLocale from '@fullcalendar/core/locales/th';
 2. Install dependencies and Install ECharts
 3. Run project and Access application
    
-**this project have backend if you try you can go to this link to be download**
+**this project have backend if you want to try you can go to this link to be download**
 
 https://github.com/Naphat-Tnk/LeaveSystemBE.git
 
-## sonarqube
+## SonarQube
 <img width="1237" height="639" alt="Screenshot 2025-07-29 230733" src="https://github.com/user-attachments/assets/28064fea-9b9f-4874-9ecb-2ae1105682ea" />
