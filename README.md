@@ -37,3 +37,7 @@ https://github.com/Naphat-Tnk/LeaveSystemBE.git
 
 ## SonarQube
 <img width="1237" height="639" alt="Screenshot 2025-07-29 230733" src="https://github.com/user-attachments/assets/28064fea-9b9f-4874-9ecb-2ae1105682ea" />
+
+## Confess
+* Unable to filter by selection on the Leave History page and the graph is not filtered accordingly.
+* Dashboard page, calendar cannot filter departments.
