@@ -1,5 +1,5 @@
 ## LeaveSystemFE
-Employee Leave Management SystemThis project is a system that allows employees to request leave through an online form, while also being able to view their leave history and total leave balance. It displays results in graph form to clearly visualize the overall leave data. Additionally, the system administrator (Admin) can approve or deny employee leave requests through this system.
+This project is part of the **front-end** system that manages employee leave, allowing employees to request leave through an online form, view leave history and total leave balance. The system displays the results in graphs to provide a clear picture of overall leave data. In addition, the administrator (Admin) can approve or reject employee leave requests through this system.
 
 ### Features
 This system has a feature that allows you to filter data by leave type and leave status, and displays a graph of the results based on the filtering conditions set. In addition, the system can export leave data to an Excel file for offline use, and can also store data externally. There is also a dark mode for users who prefer dark colors.
@@ -16,6 +16,11 @@ import { CalendarOptions } from '@fullcalendar/core/index.js';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import thLocale from '@fullcalendar/core/locales/th';
 ```
+add like in index.html if you want to use icon-bootstrap
+```
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+```
+
 ###  Run
 * `ng serve` (run)
 * `ng new name`(create new Angular)
