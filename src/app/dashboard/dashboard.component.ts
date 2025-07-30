@@ -50,7 +50,7 @@ export class DashboardComponent {
       .filter((request: any) => request.status === 'APPROVED' && new Date(request.startDate).getFullYear() === year)
       .reduce((total: number, request: any) => total + this.countDays(new Date(request.startDate), new Date(request.endDate)), 0);
       console.log('leave-requests:', res);
-      this.Requests = res.sort((a: any, b: any) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+      this.Requests = res.sort((a: any, b: any) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime()).slice(0, 5);
     
     this.calendar();
     });
